@@ -1,0 +1,105 @@
+
+<div class="card" style="height: 300px; width: 1150px; align-self: center; margin-left: 25px;">
+    <h4 class="titolo" style="display: flex; clear: both;">Form inserimento dati prenotazione</h4>
+    <div>
+      <div class="inserimento">
+        <b><label style="margin-right: 10px;" for="data">DATA:</label><br></b>
+        <input class="insData" type="date" id="datepicker" name="Data" #newData>
+      </div>
+      <div class="inserimento">
+        <b><label for="ora">ORA:</label><br></b>
+        <input class="insOra" type="time" name="Ora" #newOra>
+      </div>
+    </div>
+    <div>
+      <div class="inserimento">
+        <b><label for="nome">NOME:</label><br></b>
+        <input class="insNome" name="Nome" placeholder="scrivi qui" #newNome>
+      </div>
+      <div class="inserimento">
+        <b><label for="cognome">COGNOME:</label><br></b>
+        <input class="insCognome" name="Cognome" placeholder="scrivi qui" #newCognome>
+      </div>
+      <div class="inserimento">
+        <b><label for="telefono">TELEFONO:</label><br></b>
+        <input class="insTelefono" name="TELEFONO" placeholder="scrivi qui" #newTelefono>
+      </div>
+    </div>
+    
+    <div class="inserimento">
+      <b><label for="tipolgiaAnimale">TIPOLOGIA ANIMALE:</label></b>
+      <select #newTAnimale name="tipologiaAnimale" class="insAnimale">
+        <option value="">SELEZIONA ANIMALE</option>
+        <option *ngFor="let a of animali" [value]="a">{{ a }}</option>
+      </select>
+    </div>
+    <div class="inserimento">
+      <b><label for="tipolgiaPrestazione">TIPOLOGIA PRESTAZIONE:</label></b>
+      <select #newTPrestazione name="tipolgiaPrestazione" class="insPrestazione">
+        <option value="">SELEZIONA PRESTAZIONE</option>
+        <option *ngFor="let p of prestazioni" [value]="p">{{ p }}</option>
+      </select>
+    </div>
+    <div class="inserimento">
+      <b><label for="annotazioni">EVENTUALI ANNOTAZIONI:</label><br></b>
+      <input style="width: 300px;" class="insAnnotazioni" name="Annotazioni" placeholder="scrivi qui (non obbligatorio)" #newAnnotazioni>
+    </div>
+    
+    <button class="btnInserimento" (click)="addPrenotazione(newData.value, newOra.value, newNome.value, newCognome.value, newTelefono.value, newTAnimale.value, newTPrestazione.value, newAnnotazioni.value)" class="btn btnInserimento btn-primary">
+      Aggiungi Prenotazione
+    </button>
+  </div>
+<div style="display: flex; margin-top: 30px; margin-left: 25px;margin-bottom: 40px;">
+    <div class="card col-4">
+        <h4>ELENCO PRENOTAZIONI</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Proprietario</th>
+                    <th>telefono</th>
+                    <th>animale</th>
+                    
+                </tr>  
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of listaPrenotazioni" >
+                    <td (click)="dettagli(p.id)">{{ p.data.toLocaleDateString('it-IT') }}</td>
+                    <td (click)="dettagli(p.id)">{{ p.ora }}</td>
+                    <td (click)="dettagli(p.id)">{{ p.cognomeProprietario }} {{ p.nomeProprietario.substr(0,1)}}. </td>
+                    <td (click)="dettagli(p.id)">{{ p.telefonoProprietario }}</td>
+                    <td (click)="dettagli(p.id)">{{ p.tipologiaAnimale }}</td>
+                    <td href='#' (click)="cancella(p)" style="color:blue;" >cancella</td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+    <div class="card col-4" style="margin-left:140px; margin-bottom: 40px;" >
+        <h4>DETTAGLIO SINGOLA PRENOTAZIONE</h4>
+        <div *ngIf="prenotazioneDettaglio">
+            <div>
+                <p class="lineare"><b>Data:</b></p>
+                <p class="lineare">{{ prenotazioneDettaglio.data.toLocaleDateString('it-IT') }}</p>
+                <p class="lineare"><b>Ora:</b></p>
+                <p ><b>{{  prenotazioneDettaglio.ora  }}</b></p>
+            </div>
+                <p ><b>Proprietario:</b></p>
+                <p >{{  prenotazioneDettaglio.nomeProprietario  }} {{  prenotazioneDettaglio.cognomeProprietario  }}</p>
+                 <p ><b>Telefono:</b></p>
+                <p >{{  prenotazioneDettaglio.telefonoProprietario  }}</p>
+                <p ><b>Animale:</b></p>
+                <p >{{  prenotazioneDettaglio.tipologiaAnimale  }}</p>
+                <p ><b>Prestazione:</b></p>
+                <p >{{  prenotazioneDettaglio.tipoPrestazione  }}</p>
+                <p ><b>Annotazioni:</b></p>
+                <p>{{  prenotazioneDettaglio.annotazioni  }}</p>
+           
+        </div>
+        
+        
+  </div>
+
+           
+</div>
+

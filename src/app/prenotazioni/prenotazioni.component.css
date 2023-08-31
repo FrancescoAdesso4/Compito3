@@ -1,0 +1,33 @@
+   
+
+.card{
+    background-color: rgb(236, 232, 232);
+    border-radius: 0%;
+    border-color: black;
+    border-width: thin;
+}
+.btnInserimento{
+    width: 250px;
+    margin-left: auto; 
+    background-color: rgb(158, 155, 155);
+    border-color: black;
+}
+.form{
+    float:left;
+}
+label{
+    margin-right: 30px;
+    margin-left: 20px;
+}
+.inserimento{
+    display: inline-flex;
+    margin-bottom: 15px;
+}
+.lineare{
+    float:left;
+    display: inline-flex;
+}
+p{
+    margin-right: 30px;
+    margin-left: 20px;
+}
