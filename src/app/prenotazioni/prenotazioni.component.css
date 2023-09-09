@@ -1,33 +1,33 @@
    
 
 .card{
-    background-color: rgb(236, 232, 232);
+    background-color: rgb(236, 234, 232);
     border-radius: 0%;
     border-color: black;
     border-width: thin;
 }
 .btnInserimento{
-    width: 250px;
+    width: 300px;
     margin-left: auto; 
-    background-color: rgb(158, 155, 155);
+    background-color: rgb(158, 158, 155);
     border-color: black;
 }
 .form{
     float:left;
 }
 label{
-    margin-right: 30px;
-    margin-left: 20px;
+    margin-right: 33px;
+    margin-left: 23px;
 }
 .inserimento{
     display: inline-flex;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 .lineare{
     float:left;
     display: inline-flex;
 }
 p{
-    margin-right: 30px;
-    margin-left: 20px;
+    margin-right: 33px;
+    margin-left: 23px;
 }
